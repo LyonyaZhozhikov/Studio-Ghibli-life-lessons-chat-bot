@@ -9,3 +9,11 @@ Author of the idea: SoftGhibliPosts - https://twitter.com/softghibliposts
 Original art by: Studio Ghibli - https://www.ghibli.jp
 
 Bot made by: Bioinformatics Institute - https://bioinf.me/en
+
+## Critical issue:
+
+Bot does not restart, cannot be restared with /start
+
+## Desirable functions:
+
+Bot does not merge 4 pictures into a single one
