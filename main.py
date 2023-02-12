@@ -160,23 +160,6 @@ async def process_height_invalid(message: types.Message):
                                reply_markup=markup)
 
 
-def create_collage(images):
-    images = [io.imread(img) for img in images]
-    images = [cv2.resize(image, (1920, 1080)) for image in images]
-    if len(images) > 2:
-        half = len(images) // 2
-        h1 = cv2.hconcat(images[:half])
-        h2 = cv2.hconcat(images[half:])
-        concat_images = cv2.vconcat([h1, h2])
-    else:
-        concat_images = cv2.hconcat(images)
-    image = Image.fromarray(concat_images)
-
-    # Image path
-    image = image.convert("RGB")
-    return image
-
-
 # inputting zodiac, picture output
 @dp.message_handler(state=Form.answer_zodiac)
 async def process_output(message: types.Message, state: FSMContext):
