@@ -1,7 +1,6 @@
 # importing libraries that we need
 import logging
 
-import PIL
 from aiogram import Bot, Dispatcher, executor, types
 from aiogram.contrib.fsm_storage.memory import MemoryStorage
 from aiogram.dispatcher import FSMContext
@@ -209,10 +208,10 @@ async def process_output(message: types.Message, state: FSMContext):
         message.chat.id,
         md.text(
             md.text('Thanks for taking this journey with us!\n'),
-            md.text(md.bold('Author of the idea:'), 'SoftGhibliPosts - https://twitter.com/softghibliposts'),
+            md.text(md.bold('Author of the idea:'), 'SoftGhibliPosts - https://twitter.com/softghibliposts/status/1621287474591944705'),
             md.text(md.bold('Original art by:'), 'Studio Ghibli - https://www.ghibli.jp'),
-            md.text(md.bold('Bot made by:'), 'Bioinformatics Institute - https://bioinf.me/en\n'),
-            md.text('See you soon!'),
+            md.text(md.bold('Bot made by:'), 'Yakutian Bioinformatics - for practice :)\n'),
+            md.text('See you soon! (you can always try again with /start command))'),
             sep='\n',
         ),
         reply_markup=markup,
@@ -220,7 +219,7 @@ async def process_output(message: types.Message, state: FSMContext):
     )
     await bot.send_sticker(message.from_user.id,
                            sticker='CAACAgIAAxkBAAEHro9j54clkJAQc6xAu2zkqgsjnUDz7AACogMAAkcVaAnjGJ9ATbovVi4E')
-
+    await state.finish()
 
 # run long polling
 if __name__ == '__main__':
